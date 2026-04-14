@@ -39,12 +39,12 @@ document.getElementById("form").addEventListener("submit", async (e)=>{
   document.getElementById("status").innerText = "Submitting...";
 
   const payload = {
-    name: document.getElementById("name").value,
-    email: document.getElementById("email").value,
-    phone: document.getElementById("phone").value,
-    job: "Data Analyst",
-    resume_text: document.getElementById("resume").value
-  };
+  name: document.getElementById("name").value.trim(),
+  email: document.getElementById("email").value.trim(),
+  phone: document.getElementById("phone").value.trim(),
+  job: document.getElementById("job").value,
+  resume_text: document.getElementById("resume").value.trim()
+};
 
   try{
     const res = await fetch(webhookUrl,{
