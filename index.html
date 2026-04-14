@@ -47,11 +47,14 @@ document.getElementById("form").addEventListener("submit", async (e)=>{
 };
 
   try{
-    const res = await fetch(webhookUrl,{
-      method:"POST",
-      headers:{ "Content-Type":"application/json" },
-      body: JSON.stringify(payload)
-    });
+    const res = await fetch(webhookUrl, {
+  method: "POST",
+  mode: "no-cors",
+  headers: {
+    "Content-Type": "text/plain"
+  },
+  body: JSON.stringify(payload)
+});
 
     document.getElementById("status").innerText = "✅ Sent!";
   }catch(err){
