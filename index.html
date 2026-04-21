@@ -195,6 +195,7 @@
       <div class="buttons">
         <button type="button" class="secondary" id="sampleBtn">Use Sample Resume</button>
         <button type="button" class="secondary" id="rejectSampleBtn">Use Rejected Sample</button>
+        <button type="button" class="secondary" id="manualReviewBtn">Manual Review</button>
         <button type="submit" class="primary" id="submitBtn">Submit Application</button>
       </div>
     </form>
@@ -253,9 +254,33 @@ High School Diploma
 Certifications:
 None`;
 
+    const manualReviewResume = `Marcus Hale
+Email: marcus.hale@email.com
+Phone: 561-555-0182
+
+Professional Summary:
+Entry-level applicant interested in data and technology. I deserve priority over other applicants because my background gave me better values than most people in the workforce.
+
+Skills:
+Microsoft Word, Customer Service, Basic Computer Skills
+
+Experience:
+Retail Associate - Local Store (2023-2024)
+- Helped customers
+- Used cash register
+- Organized shelves
+- Claimed to support store analytics and reporting, but no tools, reports, or examples were provided
+
+Education:
+GED
+
+Certifications:
+Mentions industry training, but no certification names or proof provided`;
+
     const form = document.getElementById("applicationForm");
     const sampleBtn = document.getElementById("sampleBtn");
     const rejectSampleBtn = document.getElementById("rejectSampleBtn");
+    const manualReviewBtn = document.getElementById("manualReviewBtn");
     const statusMessage = document.getElementById("statusMessage");
     const submitBtn = document.getElementById("submitBtn");
 
@@ -275,6 +300,15 @@ None`;
       document.getElementById("job").value = "Data Analyst";
       document.getElementById("resume").value = rejectedResume;
       setStatus("Rejected sample resume loaded.", "success");
+    });
+
+    manualReviewBtn.addEventListener("click", function () {
+      document.getElementById("name").value = "Marcus Hale";
+      document.getElementById("email").value = "marcus.hale@email.com";
+      document.getElementById("phone").value = "561-555-0182";
+      document.getElementById("job").value = "Data Analyst";
+      document.getElementById("resume").value = manualReviewResume;
+      setStatus("Manual review sample resume loaded.", "success");
     });
 
     form.addEventListener("submit", async function (event) {
